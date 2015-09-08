@@ -1,4 +1,4 @@
-Git It & Quit It
+<strong>Git It & Quit It</strong>
 
 GIQI is the future of gitting things done.
 
