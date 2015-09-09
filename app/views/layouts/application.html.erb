@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<div class="row" id="flash">
+  <div class="col-lg-12">
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>" role="alert">
+        <%= sanitize(message) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <%= yield %>
 
 </body>

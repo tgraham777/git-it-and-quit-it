@@ -4,17 +4,18 @@
 @import "bootstrap-sprockets";
 
 // Import cerulean variables
-@import "bootswatch/cosmo/variables";
+@import "bootswatch/yeti/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
-body { padding-top: 10px;
+body {
+  padding-top: 10px;
 }
 
 // And finally bootswatch style itself
-@import "bootswatch/cosmo/bootswatch";
+@import "bootswatch/yeti/bootswatch";
 
 // Whatever application styles you have go last
 // @import "base";
