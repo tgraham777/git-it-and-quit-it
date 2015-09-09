@@ -10,10 +10,16 @@
 @import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
-body { padding-top: 10px; }
+body { padding-top: 10px;
+    display: }
 
 // And finally bootswatch style itself
 @import "bootswatch/cosmo/bootswatch";
 
 // Whatever application styles you have go last
 // @import "base";
+
+img.img-circle.img-thumbnail.home-image {
+    border-radius: 50%;
+    height: 250px;
+}
