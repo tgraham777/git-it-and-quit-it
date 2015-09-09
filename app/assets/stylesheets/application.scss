@@ -4,7 +4,7 @@
 @import "bootstrap-sprockets";
 
 // Import cerulean variables
-@import "bootswatch/spacelab/variables";
+@import "bootswatch/cosmo/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -13,7 +13,7 @@
 body { padding-top: 10px; }
 
 // And finally bootswatch style itself
-@import "bootswatch/spacelab/bootswatch";
+@import "bootswatch/cosmo/bootswatch";
 
 // Whatever application styles you have go last
 // @import "base";

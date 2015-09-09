@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'sessions/create'
 
-  root 'welcome#index'
+  # get 'welcome/index'
+
+  get '/auth/github/callback', to: 'sessions#create'
+  # get '/logout', to: 'sessions#destroy'
+  # get '/dashboard', to: 'dashboard#show'
+
+  root 'welcome#show'
 end
