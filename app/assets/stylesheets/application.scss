@@ -2,6 +2,7 @@
 
 //Import bootstrap-sprockets
 @import "bootstrap-sprockets";
+@import "sprockets-octicons";
 
 // Import cerulean variables
 @import "bootswatch/yeti/variables";
@@ -17,10 +18,9 @@ body {
 // And finally bootswatch style itself
 @import "bootswatch/yeti/bootswatch";
 
+@import "heroic-features";
+@import "custom";
+
+
 // Whatever application styles you have go last
 // @import "base";
-
-img.img-circle.img-thumbnail.home-image {
-    border-radius: 50%;
-    height: 250px;
-}
