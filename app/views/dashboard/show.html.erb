@@ -1,11 +1,11 @@
 <div class="container-fluid container-home">
+  <h3 class="home"> Welcome, <%= current_user.nickname %></h3>
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <h1 class="home">You Are Authorized to Git It & Quit It!</h1>
-    <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
-    <h2 class="home"> Username: <%= current_user.nickname %></h2>
-    <h2 class="home"> Email: <%= current_user.email %></h2>
-    <%= link_to "Logout", logout_path, class: "btn btn-lg btn-default btn-home" %>
+    <h1 class="home">Dashboard</h1>
+    <br><%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
+    <h3 class="home"> Email: <%= current_user.email %></h3>
+    <br><%= link_to "Logout", logout_path, class: "btn btn-md btn-default btn-home" %>
   </div>
   <div class="col-md-2"></div>
 </div>
