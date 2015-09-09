@@ -72,6 +72,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
+    hurley (0.2)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -205,6 +206,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   figaro
+  hurley
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-github
