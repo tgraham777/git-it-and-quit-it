@@ -44,7 +44,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/">Back to Login</a>
+                        <a href="/logout">Logout</a>
                     </li>
                     <!-- <li>
                         <a href="#">Services</a>
@@ -170,6 +170,15 @@
         <!-- /.row -->
 
         <hr>
+
+        Profile Info
+        Image:
+        <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
+        Number of starred repos: <%= @starred_repos.count %>
+
+        <% @repos.each do |repo| %>
+          <%= repo.name %>
+        <% end %>
 
         <!-- Footer -->
         <footer>

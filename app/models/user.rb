@@ -6,7 +6,21 @@ class User < ActiveRecord::Base
     user.image_url = auth.info.image
     user.token = auth.credentials.token
     user.save
-    
+
     user
+  end
+
+  def repos
+    Github.repos.list(user: self.nickname)
+  end
+
+  def find_starred_repos
+    github_auth.activity.starring.starred
+  end
+
+  private
+
+  def github_auth
+    Github.new(oauth_token: self.token)
   end
 end
