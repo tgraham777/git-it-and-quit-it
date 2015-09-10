@@ -7,7 +7,7 @@
 // woman in train station: https://unsplash.com/photos/2TlAsvhqiL0/download
 
 body {
-  background-image: url("woman_train.jpeg");
+  background-image: image-url("woman_train.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -73,6 +73,6 @@ body {
   font-size: 50px;
 }
 
-// .nav.navbar-nav {
-//   text-align: right;
-// }
+.navbar.navbar-inverse.navbar-fixed-top {
+  background-color: #449944;
+}
