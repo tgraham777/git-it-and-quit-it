@@ -171,7 +171,7 @@
 
         <hr>
 
-        Profile Info<br>
+        <strong>Profile Info</strong><br>
         Image:<br>
         <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %><br><br>
 
@@ -191,6 +191,22 @@
         <% current_user.followed.each do |followed| %>
           <%= followed[:login] %><br>
         <% end %><br>
+
+        <strong>Recent Activity</strong><br>
+        <%= current_user.commit_dates[0] %> -
+        <%= current_user.commit_messages[0].first %><br>
+
+        <%= current_user.commit_dates[1] %> -
+        <%= current_user.commit_messages[1].first %><br>
+
+        <%= current_user.commit_dates[2] %> -
+        <%= current_user.commit_messages[2].first %><br>
+
+        <%= current_user.commit_dates[3] %> -
+        <%= current_user.commit_messages[3].first %><br>
+
+        <%= current_user.commit_dates[4] %> -
+        <%= current_user.commit_messages[4].first %><br>
 
         <!-- Footer -->
         <footer>
