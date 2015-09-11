@@ -35,6 +35,8 @@ gem 'figaro'
 
 gem 'github_api'
 
+gem 'githubstats'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

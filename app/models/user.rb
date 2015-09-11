@@ -56,6 +56,14 @@ class User < ActiveRecord::Base
     github.orgs.list(user: self.nickname)
   end
 
+  def find_scores
+    stats
+    scores = []
+    scores.push(@stats.data.scores.reverse[0..365]
+    .inject(:+), current_streak, longest_streak )
+    scores
+  end
+
   private
 
   def github
@@ -72,5 +80,19 @@ class User < ActiveRecord::Base
     events = github.activity.events.performed(user.login)
     followed_recent_push_event = events.select { |event| event[:type] == "PushEvent" }.first
     followed_recent_push_event
+  end
+
+  def stats
+    @stats ||= GithubStats.new(self.nickname)
+  end
+
+  def current_streak
+    days = @stats.data.streak.last.date - @stats.data.streak.first.date
+    days.numerator + days.denominator
+  end
+
+  def longest_streak
+    days = @stats.data.longest_streak.last.date - @stats.data.longest_streak.first.date
+    days.numerator + days.denominator
   end
 end
