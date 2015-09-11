@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
     messages
   end
 
+  def organizations
+    github.orgs.list(user: self.nickname)
+  end
+
   private
 
   def github
