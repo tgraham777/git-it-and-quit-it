@@ -89,13 +89,13 @@
         <div class="row text-center">
 
             <div class="col-md-6 col-sm-12 hero-feature">
-                <div class="thumbnail">
+                <div class="thumbnail" id="profile-rep-box">
                     <div class="caption">
                         <h3>Profile</h3>
                     </div>
                     <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
                     <h4 class="name "> <%= link_to current_user.nickname, "https://github.com/#{current_user.nickname}" %> </h4>
-                    <h6 class="email"> <%= current_user.email %> </h6>
+                    <h5 class="email"> <%= current_user.email %> </h5>
 
                     <hr>
                     <h4 class="starred-repo"> Number of starred repos: <span id="starred"><%= current_user.starred_repos.count %></span></h4><br>
@@ -111,7 +111,7 @@
                     </h4>
 
                     <h4 class="starred-repo">Following:
-                      <ul>
+                      <ul class="following">
                         <% current_user.followed.each do |followed| %>
                           <li>
                             <%= link_to followed.login, followed.html_url %>
@@ -123,7 +123,7 @@
             </div>
 
             <div class="col-md-6 col-sm-12 hero-feature">
-              <div class="thumbnail">
+              <div class="thumbnail" id="profile-rep-box">
                 <div class="caption">
                   <h3>Repositories</h3>
                 </div>
@@ -140,55 +140,101 @@
             </div>
 
             <div class="col-md-6 col-sm-12 hero-feature">
-                <div class="thumbnail">
-                    <!-- <img src="http://placehold.it/800x500" alt=""> -->
-                    <div class="caption">
-                        <h3>My Recent Activity</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
+              <div class="thumbnail" id="commit-boxes">
+                <div class="caption">
+                  <h3>My Recent Commits</h3>
                 </div>
+                <h4 class="starred-repo">
+                  <%= link_to current_user.commits[0].repo.name, "http://www.github.com/#{current_user.commits[0].repo.name}" %><br>
+                  <%= current_user.commit_dates[0] %> -
+                  <%= current_user.commit_messages[0].first %><br><br>
+
+                  <%= link_to current_user.commits[1].repo.name, "http://www.github.com/#{current_user.commits[0].repo.name}" %><br>
+                  <%= current_user.commit_dates[1] %> -
+                  <%= current_user.commit_messages[1].first %><br><br>
+
+                  <%= link_to current_user.commits[2].repo.name, "http://www.github.com/#{current_user.commits[0].repo.name}" %><br>
+                  <%= current_user.commit_dates[2] %> -
+                  <%= current_user.commit_messages[2].first %><br><br>
+
+                  <%= link_to current_user.commits[3].repo.name, "http://www.github.com/#{current_user.commits[0].repo.name}" %><br>
+                  <%= current_user.commit_dates[3] %> -
+                  <%= current_user.commit_messages[3].first %><br><br>
+
+                  <%= link_to current_user.commits[4].repo.name, "http://www.github.com/#{current_user.commits[0].repo.name}" %><br>
+                  <%= current_user.commit_dates[4] %> -
+                  <%= current_user.commit_messages[4].first %><br>
+                </h4>
+              </div>
             </div>
 
             <div class="col-md-6 col-sm-12 hero-feature">
-                <div class="thumbnail">
-                    <!-- <img src="http://placehold.it/800x500" alt=""> -->
-                    <div class="caption">
-                        <h3>Followed Users' Recent Activity</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
+              <div class="thumbnail" id="commit-boxes">
+                <div class="caption">
+                  <h3>Followed Users' Recent Commits</h3>
                 </div>
+                <h4 class="starred-repo">
+                  <% if current_user.followed[0] %>
+                    <%= link_to current_user.followed[0].login, "https://github.com/#{current_user.followed[0].login}" %><br>
+                    <%= current_user.followed_commit_dates[0] %> -
+                    <%= current_user.followed_commit_messages[0].first %><br><br>
+                  <% end %>
+
+                  <% if current_user.followed[1] %>
+                    <%= link_to current_user.followed[1].login, "https://github.com/#{current_user.followed[1].login}" %><br>
+                    <%= current_user.followed_commit_dates[1] %> -
+                    <%= current_user.followed_commit_messages[1].first %><br><br>
+                  <% end %>
+
+                  <% if current_user.followed[2] %>
+                    <%= link_to current_user.followed[2].login, "https://github.com/#{current_user.followed[2].login}" %><br>
+                    <%= current_user.followed_commit_dates[2] %> -
+                    <%= current_user.followed_commit_messages[2].first %><br><br>
+                  <% end %>
+
+                  <% if current_user.followed[3] %>
+                    <%= link_to current_user.followed[3].login, "https://github.com/#{current_user.followed[3].login}" %><br>
+                    <%= current_user.followed_commit_dates[3] %> -
+                    <%= current_user.followed_commit_messages[3].first %><br><br>
+                  <% end %>
+
+                  <% if current_user.followed[4] %>
+                    <%= link_to current_user.followed[4].login, "https://github.com/#{current_user.followed[4].login}" %><br>
+                    <%= current_user.followed_commit_dates[4] %> -
+                    <%= current_user.followed_commit_messages[4].first %><br><br>
+                  <% end %>
+                </h4>
+              </div>
             </div>
 
             <div class="col-md-6 col-sm-12 hero-feature">
-                <div class="thumbnail">
-                    <!-- <img src="http://placehold.it/800x500" alt=""> -->
-                    <div class="caption">
-                        <h3>My Organizations</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
+              <div class="thumbnail" id="org-cont-boxes">
+                <div class="caption">
+                  <h3>My Organizations</h3>
                 </div>
+                <h4 class="starred-repo">
+                  <ul>
+                    <% current_user.organizations.each do |organization| %>
+                      <li>
+                        <%= link_to organization.login, "https://github.com/#{organization.login}" %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </h4>
+              </div>
             </div>
 
             <div class="col-md-6 col-sm-12 hero-feature">
-                <div class="thumbnail">
-                    <!-- <img src="http://placehold.it/800x500" alt=""> -->
-                    <div class="caption">
-                        <h3>Contributions</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
+              <div class="thumbnail" id="org-cont-boxes">
+                <div class="caption">
+                  <h3>My Contributions</h3>
                 </div>
+                <h4 class="starred-repo">
+                  Contributions in the past year: <%= current_user.find_scores[0] %><br>
+                  Current streak: <%= current_user.find_scores[1] %><br>
+                  Longest streak: <%= current_user.find_scores[2] %>
+                </h4>
+              </div>
             </div>
 
         </div>
@@ -196,64 +242,6 @@
 
         <hr>
 
-        <strong>Recent Activity</strong><br>
-        <%= current_user.commit_dates[0] %> -
-        <%= current_user.commit_messages[0].first %><br>
-
-        <%= current_user.commit_dates[1] %> -
-        <%= current_user.commit_messages[1].first %><br>
-
-        <%= current_user.commit_dates[2] %> -
-        <%= current_user.commit_messages[2].first %><br>
-
-        <%= current_user.commit_dates[3] %> -
-        <%= current_user.commit_messages[3].first %><br>
-
-        <%= current_user.commit_dates[4] %> -
-        <%= current_user.commit_messages[4].first %><br><br>
-
-
-        <strong>Recent Activity - Followed</strong><br>
-        <% if current_user.followed[0] %>
-          <%= current_user.followed[0].login %> -
-          <%= current_user.followed_commit_dates[0] %> -
-          <%= current_user.followed_commit_messages[0].first %><br><br>
-        <% end %>
-
-        <% if current_user.followed[1] %>
-          <%= current_user.followed[1].login %> -
-          <%= current_user.followed_commit_dates[1] %> -
-          <%= current_user.followed_commit_messages[1].first %><br><br>
-        <% end %>
-
-        <% if current_user.followed[2] %>
-          <%= current_user.followed[2].login %> -
-          <%= current_user.followed_commit_dates[2] %> -
-          <%= current_user.followed_commit_messages[2].first %><br><br>
-        <% end %>
-
-        <% if current_user.followed[3] %>
-          <%= current_user.followed[3].login %> -
-          <%= current_user.followed_commit_dates[3] %> -
-          <%= current_user.followed_commit_messages[3].first %><br><br>
-        <% end %>
-
-        <% if current_user.followed[4] %>
-          <%= current_user.followed[4].login %> -
-          <%= current_user.followed_commit_dates[4] %> -
-          <%= current_user.followed_commit_messages[4].first %><br><br>
-        <% end %>
-
-
-        <strong>Your Organizations</strong><br>
-        <% current_user.organizations.each do |organization| %>
-          <%= organization.login %><br>
-        <% end %><br>
-
-        <strong>Your Contributions</strong><br>
-        Contributions in past year: <%= current_user.find_scores[0] %><br>
-        Current streak: <%= current_user.find_scores[1] %><br>
-        Longest streak: <%= current_user.find_scores[2] %><br>
 
         <!-- Footer -->
         <footer>
