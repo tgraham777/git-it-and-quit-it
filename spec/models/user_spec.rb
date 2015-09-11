@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  scenario "#followers" do
+  xscenario "#followers" do
     VCR.use_cassette("user_test#followers") do
 
       followers = user.followers
@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  scenario "#following" do
+  xscenario "#following" do
     VCR.use_cassette("user_test#following") do
 
       followed = user.followed
@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  scenario "#starred" do
+  xscenario "#starred" do
     VCR.use_cassette("user_test#starred") do
 
       starred_repos = user.starred_repos
@@ -77,7 +77,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  scenario "#find_followed_commit_messages" do
+  xscenario "#find_followed_commit_messages" do
     VCR.use_cassette("user_test#find_recent_commits_for_followed_users") do
 
       commit_messages = user.followed_commit_messages
@@ -87,7 +87,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  scenario "#find_followed_commit_dates" do
+  xscenario "#find_followed_commit_dates" do
     VCR.use_cassette("user_test#find_recent_commits_for_followed_users") do
 
       commit_dates = user.followed_commit_dates

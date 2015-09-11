@@ -5,7 +5,7 @@ RSpec.describe "user" do
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:github]
   end
 
-  scenario "can view dashboard" do
+  xscenario "can view dashboard" do
     VCR.use_cassette("user_dashboard_test#render") do
       visit root_path
       login
