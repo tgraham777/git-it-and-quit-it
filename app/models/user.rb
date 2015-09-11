@@ -32,29 +32,25 @@ class User < ActiveRecord::Base
   end
 
   def commit_dates
-    date_times = recent_push_events.map { |event| event.created_at }
-    date_times.map { |date_time| date_time.to_date }
-    # dates
+    date_times = recent_push_events.map { |event| event.created_at }.compact
+    date_times.map { |date_time| date_time.to_date }.compact
   end
 
   def followed_commit_dates
-    followed_events = followed.map { |user| followed_recent_push_event(user) }
-    date_times = followed_events.map { |event| event.created_at }
-    date_times.map { |date_time| date_time.to_date }
-    # dates
+    followed_events = followed.map { |user| followed_recent_push_event(user) }.compact
+    date_times = followed_events.map { |event| event.created_at }.compact
+    date_times.map { |date_time| date_time.to_date }.compact
   end
 
   def commit_messages
-    commits = recent_push_events.map { |push_event| push_event.payload.commits }
-    commits.map { |outer| outer.map { |inner| inner.message } }
-    # messages
+    commits = recent_push_events.map { |push_event| push_event.payload.commits }.compact
+    commits.map { |outer| outer.map { |inner| inner.message } }.compact
   end
 
   def followed_commit_messages
-    followed_events = followed.map { |user| followed_recent_push_event(user) }
-    commits = followed_events.map { |push_event| push_event.payload.commits }
-    commits.map { |outer| outer.map { |inner| inner.message } }
-    # messages
+    followed_events = followed.map { |user| followed_recent_push_event(user) }.compact
+    commits = followed_events.map { |push_event| push_event.payload.commits }.compact
+    commits.map { |outer| outer.map { |inner| inner.message } }.compact
   end
 
   def organizations
@@ -78,13 +74,11 @@ class User < ActiveRecord::Base
   def recent_push_events
     events = github.activity.events.performed(self.nickname)
     events.select { |event| event[:type] == "PushEvent" }.first(5)
-    # recent_push_events
   end
 
   def followed_recent_push_event(user)
     events = github.activity.events.performed(user.login)
     events.select { |event| event[:type] == "PushEvent" }.first
-    # followed_recent_push_event
   end
 
   def stats
