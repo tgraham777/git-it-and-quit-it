@@ -3,6 +3,8 @@ class DashboardController < ApplicationController
 
   def show
     @repos = current_user.repos
-    @starred_repos = current_user.find_starred_repos
+    @starred_repos = current_user.starred_repos
+    @followers = current_user.followers
+    # @followed = current_user.followed
   end
 end

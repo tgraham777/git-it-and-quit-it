@@ -171,14 +171,26 @@
 
         <hr>
 
-        Profile Info
-        Image:
-        <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
-        Number of starred repos: <%= @starred_repos.count %>
+        Profile Info<br>
+        Image:<br>
+        <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %><br><br>
 
-        <% @repos.each do |repo| %>
-          <%= repo.name %>
-        <% end %>
+        Number of starred repos: <%= current_user.starred_repos.count %><br><br>
+
+        Repo list:<br>
+        <% current_user.repos.each do |repo| %>
+          <%= repo.name %><br>
+        <% end %><br>
+
+        Followers:<br>
+        <% current_user.followers.each do |follower| %>
+          <%= follower[:login] %><br>
+        <% end %><br>
+
+        Following:<br>
+        <% current_user.followed.each do |followed| %>
+          <%= followed[:login] %><br>
+        <% end %><br>
 
         <!-- Footer -->
         <footer>

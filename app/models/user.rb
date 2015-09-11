@@ -14,13 +14,21 @@ class User < ActiveRecord::Base
     Github.repos.list(user: self.nickname)
   end
 
-  def find_starred_repos
-    github_auth.activity.starring.starred
+  def starred_repos
+    github.activity.starring.starred
+  end
+
+  def followers
+    github.users.followers.list
+  end
+
+  def followed
+    github.users.followers.following
   end
 
   private
 
-  def github_auth
+  def github
     Github.new(oauth_token: self.token)
   end
 end
