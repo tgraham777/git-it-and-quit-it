@@ -27,7 +27,7 @@ body {
   border-style: groove;
   padding-bottom: 15px;
   opacity: 0.8;
-  margin-top: 17px;
+  margin-top: 15px;
 }
 
 #tagline {
@@ -77,4 +77,9 @@ body {
 
 .navbar.navbar-inverse.navbar-fixed-top {
   background-color: #449944;
+}
+
+.img-circle.img-thumbnail.home-image {
+  width: 100px;
+  height: 100px;
 }
