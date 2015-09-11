@@ -61,7 +61,7 @@
 
     <!-- Page Content -->
     <div class="container">
-      <h2><span class="mega-octicon octicon-git-pull-request"></span>&nbspWelcome, <%= current_user.nickname %>&nbsp</h2>
+      <h3><span class="mega-octicon octicon-git-pull-request"></span>&nbspWelcome, <%= current_user.nickname %>&nbsp</h3>
 
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
@@ -80,7 +80,7 @@
         <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
-                <h3>Github Snapshot</h3>
+                <h2>Github Snapshot</h2>
             </div>
         </div>
         <!-- /.row -->
@@ -90,28 +90,53 @@
 
             <div class="col-md-6 col-sm-12 hero-feature">
                 <div class="thumbnail">
-                    <!-- <img src="http://placehold.it/800x500" alt=""> -->
                     <div class="caption">
                         <h3>Profile</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
                     </div>
+                    <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
+                    <h4 class="name "> <%= link_to current_user.nickname, "https://github.com/#{current_user.nickname}" %> </h4>
+                    <h6 class="email"> <%= current_user.email %> </h6>
+
+                    <hr>
+                    <h4 class="starred-repo"> Number of starred repos: <span id="starred"><%= current_user.starred_repos.count %></span></h4><br>
+
+                    <h4 class="starred-repo">Followers:
+                      <ul>
+                        <% current_user.followers.each do |follower| %>
+                          <li>
+                            <%= link_to follower.login, follower.html_url %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </h4>
+
+                    <h4 class="starred-repo">Following:
+                      <ul>
+                        <% current_user.followed.each do |followed| %>
+                          <li>
+                            <%= link_to followed.login, followed.html_url %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </h4>
                 </div>
             </div>
 
             <div class="col-md-6 col-sm-12 hero-feature">
-                <div class="thumbnail">
-                    <!-- <img src="http://placehold.it/800x500" alt=""> -->
-                    <div class="caption">
-                        <h3>Contributions</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
+              <div class="thumbnail">
+                <div class="caption">
+                  <h3>Repositories</h3>
                 </div>
+                <h4 class="starred-repo">
+                  <ul>
+                    <% current_user.repos.each do |repo| %>
+                      <li>
+                        <%= link_to repo.name, repo.html_url %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </h4>
+              </div>
             </div>
 
             <div class="col-md-6 col-sm-12 hero-feature">
@@ -157,7 +182,7 @@
                 <div class="thumbnail">
                     <!-- <img src="http://placehold.it/800x500" alt=""> -->
                     <div class="caption">
-                        <h3>My Repositories</h3>
+                        <h3>Contributions</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <p>
                             <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
@@ -170,28 +195,6 @@
         <!-- /.row -->
 
         <hr>
-
-        <strong>Profile Info</strong><br>
-        Image:<br>
-
-        <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %><br><br>
-
-        Number of starred repos: <%= current_user.starred_repos.count %><br><br>
-
-        Repo list:<br>
-        <% current_user.repos.each do |repo| %>
-          <%= repo.name %><br>
-        <% end %><br>
-
-        Followers:<br>
-        <% current_user.followers.each do |follower| %>
-          <%= follower.login %><br>
-        <% end %><br>
-
-        Following:<br>
-        <% current_user.followed.each do |followed| %>
-          <%= followed.login %><br>
-        <% end %><br>
 
         <strong>Recent Activity</strong><br>
         <%= current_user.commit_dates[0] %> -
