@@ -58,7 +58,6 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'better_errors'
-  gem 'simplecov'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'

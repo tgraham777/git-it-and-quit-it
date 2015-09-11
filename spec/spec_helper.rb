@@ -27,9 +27,9 @@ end
 RSpec.configure do |config|
   require 'capybara/rspec'
   require 'database_cleaner'
-  require 'simplecov'
-
-  SimpleCov.start 'rails'
+  # require 'simplecov'
+  #
+  # SimpleCov.start 'rails'
 
   config.include Capybara::DSL
 
