@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/tgraham777/orgs
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json,application/vnd.github.beta+json;q=0.5,application/json;q=0.1
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - Github API Ruby Gem 0.12.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 11 Sep 2015 18:06:54 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Ratelimit-Reset:
+      - '1441998414'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Etag:
+      - W/"dd3547b97a3808d2ac9cf9f7232ee6e1"
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 47D4A079:113A5:22D6C:55F3183E
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - c6c65e5196703428e7641f7d1e9bc353
+    body:
+      encoding: UTF-8
+      string: '[{"login":"turingschool","id":7934292,"url":"https://api.github.com/orgs/turingschool","repos_url":"https://api.github.com/orgs/turingschool/repos","events_url":"https://api.github.com/orgs/turingschool/events","members_url":"https://api.github.com/orgs/turingschool/members{/member}","public_members_url":"https://api.github.com/orgs/turingschool/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/7934292?v=3","description":""}]'
+    http_version: 
+  recorded_at: Fri, 11 Sep 2015 18:06:54 GMT
+recorded_with: VCR 2.9.3
