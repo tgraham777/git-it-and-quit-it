@@ -88,7 +88,7 @@
         <!-- Page Features -->
         <div class="row text-center">
 
-            <div class="col-md-4 col-sm-6 hero-feature">
+            <div class="col-md-6 col-sm-12 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
@@ -101,7 +101,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 hero-feature">
+            <div class="col-md-6 col-sm-12 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
@@ -114,7 +114,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 hero-feature">
+            <div class="col-md-6 col-sm-12 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
@@ -127,7 +127,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 hero-feature">
+            <div class="col-md-6 col-sm-12 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
@@ -140,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 hero-feature">
+            <div class="col-md-6 col-sm-12 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
@@ -153,7 +153,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 hero-feature">
+            <div class="col-md-6 col-sm-12 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
@@ -239,6 +239,12 @@
           <%= current_user.followed_commit_dates[4] %> -
           <%= current_user.followed_commit_messages[4].first %><br><br>
         <% end %>
+
+
+        <strong>Your Organizations</strong><br>
+        <% current_user.organizations.each do |organization| %>
+          <%= organization.login %><br>
+        <% end %><br>
 
         <!-- Footer -->
         <footer>
