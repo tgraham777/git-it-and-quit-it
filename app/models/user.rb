@@ -26,30 +26,35 @@ class User < ActiveRecord::Base
     github.users.followers.following
   end
 
+  def commits
+    events = github.activity.events.performed(self.nickname)
+    commits = events.select { |event| event[:type] == "PushEvent" }
+  end
+
   def commit_dates
     date_times = recent_push_events.map { |event| event.created_at }
-    dates = date_times.map { |date_time| date_time.to_date }
-    dates
+    date_times.map { |date_time| date_time.to_date }
+    # dates
   end
 
   def followed_commit_dates
     followed_events = followed.map { |user| followed_recent_push_event(user) }
     date_times = followed_events.map { |event| event.created_at }
-    dates = date_times.map { |date_time| date_time.to_date }
-    dates
+    date_times.map { |date_time| date_time.to_date }
+    # dates
   end
 
   def commit_messages
     commits = recent_push_events.map { |push_event| push_event.payload.commits }
-    messages = commits.map { |outer| outer.map { |inner| inner.message } }
-    messages
+    commits.map { |outer| outer.map { |inner| inner.message } }
+    # messages
   end
 
   def followed_commit_messages
     followed_events = followed.map { |user| followed_recent_push_event(user) }
     commits = followed_events.map { |push_event| push_event.payload.commits }
-    messages = commits.map { |outer| outer.map { |inner| inner.message } }
-    messages
+    commits.map { |outer| outer.map { |inner| inner.message } }
+    # messages
   end
 
   def organizations
@@ -72,14 +77,14 @@ class User < ActiveRecord::Base
 
   def recent_push_events
     events = github.activity.events.performed(self.nickname)
-    recent_push_events = events.select { |event| event[:type] == "PushEvent" }.first(5)
-    recent_push_events
+    events.select { |event| event[:type] == "PushEvent" }.first(5)
+    # recent_push_events
   end
 
   def followed_recent_push_event(user)
     events = github.activity.events.performed(user.login)
-    followed_recent_push_event = events.select { |event| event[:type] == "PushEvent" }.first
-    followed_recent_push_event
+    events.select { |event| event[:type] == "PushEvent" }.first
+    # followed_recent_push_event
   end
 
   def stats
