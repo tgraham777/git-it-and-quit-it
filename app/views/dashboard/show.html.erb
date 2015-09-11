@@ -184,12 +184,12 @@
 
         Followers:<br>
         <% current_user.followers.each do |follower| %>
-          <%= follower[:login] %><br>
+          <%= follower.login %><br>
         <% end %><br>
 
         Following:<br>
         <% current_user.followed.each do |followed| %>
-          <%= followed[:login] %><br>
+          <%= followed.login %><br>
         <% end %><br>
 
         <strong>Recent Activity</strong><br>
@@ -206,7 +206,39 @@
         <%= current_user.commit_messages[3].first %><br>
 
         <%= current_user.commit_dates[4] %> -
-        <%= current_user.commit_messages[4].first %><br>
+        <%= current_user.commit_messages[4].first %><br><br>
+
+
+        <strong>Recent Activity - Followed</strong><br>
+        <% if current_user.followed[0] %>
+          <%= current_user.followed[0].login %> -
+          <%= current_user.followed_commit_dates[0] %> -
+          <%= current_user.followed_commit_messages[0].first %><br><br>
+        <% end %>
+
+        <% if current_user.followed[1] %>
+          <%= current_user.followed[1].login %> -
+          <%= current_user.followed_commit_dates[1] %> -
+          <%= current_user.followed_commit_messages[1].first %><br><br>
+        <% end %>
+
+        <% if current_user.followed[2] %>
+          <%= current_user.followed[2].login %> -
+          <%= current_user.followed_commit_dates[2] %> -
+          <%= current_user.followed_commit_messages[2].first %><br><br>
+        <% end %>
+
+        <% if current_user.followed[3] %>
+          <%= current_user.followed[3].login %> -
+          <%= current_user.followed_commit_dates[3] %> -
+          <%= current_user.followed_commit_messages[3].first %><br><br>
+        <% end %>
+
+        <% if current_user.followed[4] %>
+          <%= current_user.followed[4].login %> -
+          <%= current_user.followed_commit_dates[4] %> -
+          <%= current_user.followed_commit_messages[4].first %><br><br>
+        <% end %>
 
         <!-- Footer -->
         <footer>
